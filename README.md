@@ -6,7 +6,7 @@ stocktrend detects support and resistant line.
 visualImpress allow user to compare stocks' ROE, ROA and Profit Margin in a sector as a bar graph
 
 Both part has no available GUI as of 15/01/2015
-Program is in python format 
+codes are in Python 3.4
 
 Author: Theema
 
