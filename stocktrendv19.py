@@ -1,13 +1,14 @@
 #Program to identify trend lines for stocks
 #Created by Theema 16th August 2014
-#9th December 2014 v18
+#19th February 2015 v19
+#changes made: catching errors when scraping stock values eg.JAS(SP)
 
 from collections import OrderedDict
 from lxml import html
-import requests
+import requests, sys
 import matplotlib.pyplot as plt
-#stock = None
-while True:
+price = []
+while price==[]:
     try:
         #get the price list for the stock
         symbol = input("which stock would you like to analize?")
@@ -20,15 +21,22 @@ while True:
         price = tree.xpath(struct)
         date1 = tree.xpath('//*[@id="cnt"]/div[1]/div[1]/div[5]/div[3]/div[2]/div[1]/text()')#latest date
         date2 = tree.xpath('//*[@id="cnt"]/div[1]/div[1]/div[5]/div[3]/div[125]/div[1]/text()')#oldest date
+        print(price)        
         Ch= [float(i) for i in price]#change prices from string to float
         Ch=Ch[::-1]#reverse the order of the list
         print (Ch)
         print("check")
-        
+      
+    except ValueError:#value error will occur if there is '-' in the list
+        price.remove('-')
+        Ch= [float(i) for i in price]#change prices from string to float
+        Ch=Ch[::-1]#reverse the order of the list
+        print (Ch)
+        print("check")
     
-        break
     except:#catch all error
-        print("No matching stock symbol was found.")
+        print("unexpected error occur", sys.exc_info()[0])
+        
 
 index= {}
 bef={}
