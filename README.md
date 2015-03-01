@@ -4,6 +4,7 @@ TrenDective has two main part currently: stocktrend and visualImpress.
 
 stocktrend detects support and resistant line. 
 visualImpress allow user to compare stocks' ROE, ROA and Profit Margin in a sector as a bar graph
+Data and stock values are based on Stock Exchange of Thailand(SET)
 
 Both part has no available GUI as of 15/01/2015
 codes are in Python 3.4
